@@ -944,7 +944,7 @@
 				DEVELOPMENT_TEAM = U23XG6LNKU;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/rn_mall_leeorz/PrefixHeader.pch";
 				INFOPLIST_FILE = rn_mall_leeorz/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -967,7 +967,7 @@
 				DEVELOPMENT_TEAM = U23XG6LNKU;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/rn_mall_leeorz/PrefixHeader.pch";
 				INFOPLIST_FILE = rn_mall_leeorz/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",

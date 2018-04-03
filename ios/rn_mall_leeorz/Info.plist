@@ -55,5 +55,11 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>红人馆在上传图片的服务中可能会使用到您的相机权限</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>红人馆在聊天的服务中可能会使用到您的麦克风权限</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>红人馆在上传图片的服务中可能会使用到您的相册权限</string>
 </dict>
 </plist>
