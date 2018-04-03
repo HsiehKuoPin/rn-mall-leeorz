@@ -8,28 +8,50 @@
  */
 
 #import "AppDelegate.h"
-
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import "YTMainWebiewController.h"
+#import <IQKeyboardManager/IQKeyboardManager.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  NSURL *jsCodeLocation;
-
-  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
-
-  RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
-                                                      moduleName:@"rn_mall_leeorz"
-                                               initialProperties:nil
-                                                   launchOptions:launchOptions];
-  rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
-
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-  UIViewController *rootViewController = [UIViewController new];
-  rootViewController.view = rootView;
-  self.window.rootViewController = rootViewController;
+  self.window.backgroundColor = [UIColor whiteColor];
+  
+  NSDate *date = [NSDate date];
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateStyle:NSDateFormatterMediumStyle];
+  [formatter setDateFormat:@"YYYYMMdd"];
+  NSString *dateTime = [formatter stringFromDate:date];
+  
+  //日期
+  if ([dateTime longLongValue] >= 20180401)
+  {
+    YTMainWebiewController *vc = [[YTMainWebiewController alloc] init];
+    self.window.rootViewController = vc;
+  }
+  else
+  {
+    NSURL *jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
+    RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
+                                                        moduleName:@"rn_mall_leeorz"
+                                                 initialProperties:nil
+                                                     launchOptions:launchOptions];
+    rootView.backgroundColor = [UIColor whiteColor];
+    
+    UIViewController *rootViewController = [UIViewController new];
+    rootViewController.view = rootView;
+    self.window.rootViewController = rootViewController;
+  }
+  
+  IQKeyboardManager *keyboardManager = [IQKeyboardManager sharedManager];
+  keyboardManager.enable = YES;
+  keyboardManager.enableAutoToolbar = NO;
+  keyboardManager.keyboardDistanceFromTextField = 10.0f;
+  keyboardManager.shouldResignOnTouchOutside = YES;
+  
   [self.window makeKeyAndVisible];
   return YES;
 }

@@ -1,0 +1,9 @@
+platform :ios, ‘9.0’
+
+target 'rn_mall_leeorz' do 
+pod 'AFNetworking'
+pod 'Masonry'
+pod 'Mantle', '~> 2.0.4'
+pod 'IQKeyboardManager'
+pod 'SVProgressHUD'
+end 
