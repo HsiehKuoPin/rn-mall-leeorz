@@ -12,6 +12,7 @@ const whiteList = [
     'searchStore',
     'productStore',
 ];
+//mmm
 
 const NOW_VERSION = 5;
 
