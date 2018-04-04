@@ -48,11 +48,11 @@ class ModuleView extends Component {
         return [
             {img: ic_personal_module_group, name: '我的推荐',func:()=>{dispatch(goto('MyRecommendation'))}},
             {img: ic_personal_module_redpacket, name: '红包',func:()=>{dispatch(goto('MyRedPacket'))}},
-            {img: ic_personal_module_history, name: '历史订单',func:()=>{this._gotoHistoryOrderList()}},
+            // {img: ic_personal_module_history, name: '历史订单',func:()=>{this._gotoHistoryOrderList()}},
             {img: ic_personal_module_address, name: '收货地址',func:()=>{dispatch(goto('AddressList',{isSelectAddress:false}))}},
             // {img: ic_personal_module_recharge, name: '充值中心',func:()=>{dispatch(goto('RechargeCenter'))}},
             {img: ic_personal_module_collect, name: '我的收藏',func:()=>{dispatch(goto('CollectList'))}},
-            {img: ic_personal_module_service_phone, name: '联系客服',func:()=>{this.refs.CallDialog.showDialog()}},
+            // {img: ic_personal_module_service_phone, name: '联系客服',func:()=>{this.refs.CallDialog.showDialog()}},
         ]
     }
 
