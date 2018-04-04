@@ -12,4 +12,5 @@ export const BaseIcon = {
     ic_minus:require('./style1/ic_minus.png'),
     ic_plus:require('./style1/ic_plus.png'),
     ic_plus_disabled:require('./style1/ic_plus_disabled.png'),
+    ic_recommend:require('./style1/ic_recommend.png'),
 };

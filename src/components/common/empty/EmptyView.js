@@ -19,6 +19,7 @@ import XImage from "../../../widgets/XImage";
 import {gotoDetail} from "../../../common/ProductUtil";
 import {formatMoney} from "../../../common/StringUtil";
 import {getMiddle} from "../../../common/PhotoUtil";
+import {ic_recommend} from "../../../../resources/index";
 
 const screenW = Dimensions.get('window').width;
 const width = (screenW - 30) / 2;
@@ -56,8 +57,8 @@ class EmptyView extends Component {
     _renderRecommended(productList){
 
         return <FlatList
-            ListHeaderComponent={()=><Image style={{width: screenW, height: 40, marginTop: 10, marginBottom: 10}}
-                                            source={{uri:ic_your_recommend}}
+            ListHeaderComponent={()=><Image style={{width: screenW, height: 30, marginTop: 10, marginBottom: 10}}
+                                            source={ic_recommend}
                                             resizeMode="contain"/>}
             showsHorizontalScrollIndicator={false}
             data={productList}

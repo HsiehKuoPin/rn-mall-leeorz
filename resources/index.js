@@ -19,6 +19,7 @@ export const {
     ic_minus,
     ic_plus_disabled,
     ic_plus,
+    ic_recommend,
 
     ic_street_bg,//
     ic_tabhost_bottom_icon1,
