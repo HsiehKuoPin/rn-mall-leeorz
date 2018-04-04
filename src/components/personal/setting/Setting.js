@@ -36,6 +36,12 @@ class Setting extends Component {
             NativeModules.GFCJPushModule.clearAlias()
         }
     }
+// <View style={styles.line}/>
+// {this.setItem('法律声明及隐私权政策', false, '', () => {
+//     this.props.dispatch(goto('Agreement', {title: '法律声明及隐私权政策', url: getHost() + 'main/legislation_protocol.html'}))
+// })}
+// <View style={styles.line}/>
+// {this.setItem('关于我们', false, '',()=>{this.props.dispatch(goto('AboutUs'))})}
 
     render() {
         return (
@@ -51,12 +57,6 @@ class Setting extends Component {
                         {this.setItem('修改登录密码', false, '',()=>{this.props.dispatch(goto('ModifyPassword'))})}
                         <View style={styles.line}/>
                         {this.setItem('支付密码', false, '',()=>{this.props.dispatch(goto('ResetPaymentPsw'))})}
-                        <View style={styles.line}/>
-                        {this.setItem('法律声明及隐私权政策', false, '', () => {
-                            this.props.dispatch(goto('Agreement', {title: '法律声明及隐私权政策', url: getHost() + 'main/legislation_protocol.html'}))
-                        })}
-                        <View style={styles.line}/>
-                        {this.setItem('关于我们', false, '',()=>{this.props.dispatch(goto('AboutUs'))})}
                         <View style={styles.line}/>
                         {this.setItem('安全退出', false, '',()=>{this.refs.LogoutDialog.showDialog()})}
                     </View>
