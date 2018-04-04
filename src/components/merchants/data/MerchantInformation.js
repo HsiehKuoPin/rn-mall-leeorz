@@ -20,6 +20,7 @@ import {checkInputIsNumber, checkPhone, checkInputEmail, replaceBlank} from '../
 import {ic_merchant_data, ic_merchant_data_iphoneX, ic_selected, ic_un_selected} from '../../../constraint/Image';
 import {goto, gotoAndClose} from '../../../reducers/RouterReducer';
 import XImage from "../../../widgets/XImage";
+import {APP_NAME} from "../../../constraint/Strings";
 
 const {width, height} = Dimensions.get('window');
 
@@ -126,7 +127,7 @@ class MerchantInformation extends Component {
         } else if (replaceBlank(this.state.user_company_name).length === 0) {
             showToastShort("您还没输入企业名称...")
         } else if (!this.state.isAgreeAgreement) {
-            showToastShort("亲,您还没同意《自然e家开放平台入驻商家服务协议》...")
+            showToastShort(`亲,您还没同意《${APP_NAME}开放平台入驻商家服务协议》...`)
         } else {
 
             let checkVerifyCode = {
@@ -268,8 +269,8 @@ class MerchantInformation extends Component {
                                             style={styles.agreement}/>
                                     <Text style={{fontSize: 12, color: contentTextColor}}>{'勾选即表示同意'}</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity activeOpacity={0.7} onPress={() => this.props.dispatch(goto('Agreement', {title: '自然e家开放平台入驻商家服务协议', url: getHost() + 'main/merchant_protocol.html'}))}>
-                                    <Text style={{fontSize: 12, color: '#65BCFE',}}>《自然e家开放平台入驻商家服务协议》</Text>
+                                <TouchableOpacity activeOpacity={0.7} onPress={() => this.props.dispatch(goto('Agreement', {title: `${APP_NAME}开放平台入驻商家服务协议`, url: getHost() + 'main/merchant_protocol.html'}))}>
+                                    <Text style={{fontSize: 12, color: '#65BCFE',}}>《{APP_NAME}开放平台入驻商家服务协议》</Text>
                                 </TouchableOpacity>
                             </View>
 

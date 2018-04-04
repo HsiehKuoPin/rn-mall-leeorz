@@ -1,6 +1,7 @@
 import React from 'react';
 import {Image, StyleSheet} from 'react-native';
 import {emptyImgUrl} from "../constraint/Image";
+import {tintColor} from "../constraint/Colors";
 
 export default class XImage extends React.Component {
     constructor(props) {
@@ -18,6 +19,6 @@ export default class XImage extends React.Component {
 
 const styles = StyleSheet.create({
     defaultStyle: {
-        resizeMode: 'contain'
+        resizeMode: 'contain',
     }
 });

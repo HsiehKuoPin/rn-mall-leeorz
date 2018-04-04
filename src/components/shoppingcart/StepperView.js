@@ -10,51 +10,63 @@ import {
 import {mainBackgroundColor, placeholderTextColor, titleTextColor} from "../../constraint/Colors";
 import {ic_addButton, ic_un_reduceButton, ic_un_addButton, ic_reduceButton} from "../../constraint/Image";
 import connect from "react-redux/es/connect/connect";
+import {ic_minus, ic_minus_disabled, ic_plus, ic_plus_disabled} from "../../../resources/index";
 
+const MINUS = 'minus';
+const PLUS = 'plus';
 class StepperView extends Component {
+    constructor(props){
+        super(props);
+    }
+    static defaultProps = {
+        max:100,
+        min:1,
+        count:1,
+    };
 
     render() {
-        // console.warn(JSON.stringify(this.props.data));
-        let count = (this.props.data === undefined) ? 1 : this.props.data.quantity;
-        let unAdd = false;
-        let unReduce = false;
-        if (this.props.data) {
-            if (this.props.data.quantity === 1) {
-                unReduce = true;
-            } else if (this.props.data.quantity === this.props.data.stock) {
-                unAdd = true;
-            }
-        }
+        let count = this.props.count;
+        let isMax = count === this.props.max;
+        let isMin = count === this.props.min;
         return (
-            <View style={{flexDirection: 'row', justifyContent: 'center', marginRight: 10}}>
-                <TouchableOpacity activeOpacity={0.7} onPress={() => this.props.updateCount('minus')}>
-                    <Image
-                        style={styles.imageStyle}
-                        source={unReduce ? ic_un_reduceButton : ic_reduceButton}/>
+            <View style={styles.container}>
+                <TouchableOpacity activeOpacity={0.7} onPress={() => {
+                    this.props.updateCount({action: MINUS, count: this._calculate(MINUS, count)});
+                }}>
+                    <Image style={styles.imageStyle} source={isMin ? ic_minus_disabled : ic_minus}/>
                 </TouchableOpacity>
                 <View style={styles.viewLabelStyle}>
                     <Text style={styles.labelStyle}>{count}</Text>
                 </View>
-                <TouchableOpacity activeOpacity={0.7} onPress={() => this.props.updateCount('plus')}>
-                    <Image
-                        style={styles.imageStyle}
-                        source={unAdd ? ic_un_addButton : ic_addButton}/>
+                <TouchableOpacity activeOpacity={0.7} onPress={() => this.props.updateCount({action:PLUS,count:this._calculate(PLUS,count)})}>
+                    <Image style={styles.imageStyle} source={isMax ? ic_plus_disabled : ic_plus}/>
                 </TouchableOpacity>
             </View>
         );
     }
+
+    _calculate(action,count){
+        action === 'plus'?count++:count--;
+        return count;
+    }
 }
 
 const styles = StyleSheet.create({
-    viewLabelStyle: {
-        backgroundColor: mainBackgroundColor,
-        borderRadius: 3,
-        borderWidth: 0.8,
+    container:{
+        borderWidth: 0.5,
         borderColor: placeholderTextColor,
-        minWidth: 35,
-        height: 30,
-        marginLeft: 8,
-        marginRight: 8,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginRight: 10
+    },
+    viewLabelStyle: {
+        borderWidth:0.5,
+        borderTopWidth: 0,
+        borderBottomWidth: 0,
+        borderColor: placeholderTextColor,
+        minWidth: 28,
+        height: 25,
         justifyContent: 'center',
         alignItems: 'center'
     },
@@ -66,8 +78,8 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     imageStyle: {
-        width: 30,
-        height: 30,
+        width: 25,
+        height: 25,
         resizeMode: 'contain'
     }
 });

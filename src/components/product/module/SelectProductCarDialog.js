@@ -12,7 +12,10 @@ import {
     Platform, FlatList,ScrollView
 } from 'react-native';
 import {isIphoneX} from "react-native-iphone-x-helper";
-import {contentTextColor, mainColor, placeholderTextColor, titleTextColor} from "../../../constraint/Colors";
+import {
+    contentTextColor, mainColor, placeholderTextColor, priceColor,
+    titleTextColor
+} from "../../../constraint/Colors";
 import Stepper from "../../../widgets/Stepper";
 import {showToastShort} from "../../../common/CommonToast";
 import {emptyImgUrl} from "../../../constraint/Image";
@@ -182,7 +185,7 @@ export default class SelectProductCarDialog extends Component {
                 <View style={styles.topView}>
                     <View style={styles.topView1}>
                         <Text style={styles.txt}>{data.name}</Text>
-                        <Text style={{color:mainColor,marginBottom:5}}>￥{parseFloat(this.state.selectSkus.salePrice).toFixed(2)}</Text>
+                        <Text style={{color:priceColor,marginBottom:5}}>￥{parseFloat(this.state.selectSkus.salePrice).toFixed(2)}</Text>
                     </View>
                     <View style={styles.imgView}>
                         <Image source={{uri: this.state.selectSkus.imgUrl===''?emptyImgUrl:this.state.selectSkus.imgUrl}} style={styles.img}/>

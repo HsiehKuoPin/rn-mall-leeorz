@@ -9,7 +9,7 @@ import {
     FlatList,
     TouchableOpacity,
 } from 'react-native';
-import {content2TextColor, mainColor, titleTextColor} from '../../../constraint/Colors';
+import {content2TextColor, mainColor, priceColor, titleTextColor} from '../../../constraint/Colors';
 import {ic_empty_car, ic_your_recommend} from '../../../constraint/Image'
 import {getRequestFailTip, isSuccess, post} from "../../../common/CommonRequest";
 import connect from "react-redux/es/connect/connect";
@@ -31,6 +31,7 @@ class EmptyView extends Component {
     }
 
     static defaultProps = {
+        isShowEmptyView:true,
         emptyTip: '空空如也',
         showRecommended:true,
     };
@@ -38,7 +39,7 @@ class EmptyView extends Component {
     componentDidMount() {
         // product/recommended
         let {updateTime, dispatch} = this.props;
-        if ((new Date().valueOf() - updateTime) < ( 24 * 60 * 60)) return;//无需更新购物车数据
+        if ((new Date().valueOf() - updateTime) < ( 24 * 60 * 60)) return;//无需更新推荐数据
         post('product/recommended', {pageNo: 1, pageSize: 4,})
             .then((responseData) => {
                 if (isSuccess(responseData)) {
@@ -84,16 +85,21 @@ class EmptyView extends Component {
         />;
     }
 
+    _getEmptyView(){
+        if(this.props.isShowEmptyView){
+            return <View style={styles.emptyViewStyle}>
+                <Image source={this.emptyImage} style={{width: screenW, height: 120, resizeMode: 'contain'}}/>
+                <Text style={styles.emptyText}>{this.props.emptyTip}</Text>
+            </View>
+        }
+        return null;
+    }
+
     render() {
-        return (
-                <ScrollView>
-                    <View style={styles.emptyViewStyle}>
-                        <Image source={this.emptyImage} style={{width: screenW, height: 120, resizeMode: 'contain'}}/>
-                        <Text style={styles.emptyText}>{this.props.emptyTip}</Text>
-                    </View>
+        return <ScrollView>
+                    {this._getEmptyView()}
                     {this.props.showRecommended?this._renderRecommended(this.props.productList):null}
                 </ScrollView>
-        )
     }
 }
 
@@ -131,7 +137,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
     },
     priceText: {
-        color: mainColor,
+        color: priceColor,
         marginTop: 10,
         marginBottom: 8,
         marginRight: 10,

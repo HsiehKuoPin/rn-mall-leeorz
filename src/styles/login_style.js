@@ -16,7 +16,7 @@ let {
 } = Dimensions.get('window');
 const styles = StyleSheet.create({
     background: {
-        backgroundColor: mainBackgroundColor,
+        backgroundColor: 'white',
         flex: 1,
     },
     container: {

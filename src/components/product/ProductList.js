@@ -27,7 +27,7 @@ import {
     placeholderTextColor,
     contentTextColor,
     mainColor,
-    mainBackgroundColor,
+    mainBackgroundColor, priceColor,
 } from "../../constraint/Colors";
 
 import {ic_screen, ic_upper_arrow, ic_down_arrow, ic_search} from "../../constraint/Image";
@@ -344,7 +344,7 @@ const styles = StyleSheet.create({
         // backgroundColor:'red'
     },
     priceText: {
-        color: mainColor,
+        color: priceColor,
         marginTop: 5,
         marginBottom: 8,
         marginHorizontal: 10,

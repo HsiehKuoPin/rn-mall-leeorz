@@ -25,7 +25,7 @@ class CarouselHome extends Component {
         }}/>);
         let activeDot = isNeedDot ? <View/> : (<View style={{
             backgroundColor: mainColor,
-            width: 16,
+            width: 8,
             height: 8,
             borderRadius: 4,
             marginLeft: 4,

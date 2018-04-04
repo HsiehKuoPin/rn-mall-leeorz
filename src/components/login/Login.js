@@ -11,12 +11,10 @@ import {
     NativeModules
 } from 'react-native'
 import styles from '../../styles/login_style';
-import {ic_account, ic_password, login_background, login_logo} from "../../constraint/Image";
+import {ic_account, ic_password, login_logo} from "../../constraint/Image";
 import TitleBar from '../../widgets/TitleBar';
-import {connect} from 'react-redux';
+import EditText from '../../widgets/edittext/EditText';
 import {goto,goBack} from '../../reducers/RouterReducer';
-import ServiceMessageView from './ServiceMessageView';
-import {placeholderTextColor} from '../../constraint/Colors';
 import {post, getRequestFailTip, isSuccess} from '../../common/CommonRequest';
 import {showToastShort} from '../../common/CommonToast';
 import {saveToken,saveOtherConfig} from '../../reducers/LoginReducer';
@@ -24,6 +22,11 @@ import {saveShoppingCartProductTotalCount} from "../../reducers/ShoppingCartRedu
 import {saveUser} from "../../reducers/UserInfoReducer";
 import {encryption} from "../../common/StringUtil";
 import IphoneModel from "../../widgets/IphoneModel";
+import connect from "react-redux/es/connect/connect";
+import {style_edit_text} from "../../widgets/edittext/style_edit_text";
+import TintImage from "../../widgets/TintImage";
+import {mainColor, placeholderTextColor} from "../../constraint/Colors";
+import {ic_login_account, ic_login_password} from "../../../resources/index";
 
 const {width} = Dimensions.get('window');
 class Login extends Component {
@@ -114,40 +117,31 @@ class Login extends Component {
             <View style={styles.background}>
                 <TitleBar title={'登  录'}/>
                 <View style={styles.container}>
-                    <View>
-                        <ImageBackground source={login_background} style={[styles.loginBackground]} resizeMode='contain'>
+                    <View style={[styles.loginBackground]}>
                             <View style={Styles.logoBackground}>
                             <Image source={login_logo} style={Styles.loginLogo}/>
                             </View>
                             <View style={styles.accountLayout}>
-                                    <View style={styles.inputLayout}>
-                                        <Image source={ic_account} style={styles.icon}/>
-                                        <TextInput
-                                            maxLength={20}
-                                            placeholder="请输入您的账号"
-                                            placeholderTextColor={placeholderTextColor}
-                                            underlineColorAndroid={'transparent'}
-                                            style={styles.input}
-                                            onChangeText={(user_text) => this.setState({user_text})}
-                                        />
-                                    </View>
-                                    <View style={[styles.inputLayout]}>
-                                        <Image source={ic_password} style={styles.icon}/>
-                                        <TextInput
-                                            placeholder="请输入您的密码"
-                                            placeholderTextColor={placeholderTextColor}
-                                            underlineColorAndroid={'transparent'}//去掉下划线
-                                            keyboardType={"default"}
-                                            style={styles.input}
-                                            onChangeText={(pass_text) => this.setState({pass_text})}
-                                            secureTextEntry={true}
-                                        />
-                                    </View>
+                                <EditText customStyle={[style_edit_text.rectangle_border,{borderColor:mainColor,}]}
+                                                icon={ic_login_account}
+                                                isTintColor={true}
+                                                placeholder={'请输入您的账号'}
+                                                placeholderTextColor={placeholderTextColor}
+                                                maxLength={20}
+                                                onChangeText={(user_text) => this.setState({user_text})}/>
+                                <EditText customStyle={[style_edit_text.rectangle_border,{marginTop:20,borderColor:mainColor,}]}
+                                                icon={ic_login_password}
+                                                isTintColor={true}
+                                                placeholder={'请输入您的密码'}
+                                                keyboardType={"default"}
+                                                placeholderTextColor={placeholderTextColor}
+                                                onChangeText={(pass_text) => this.setState({pass_text})}
+                                                secureTextEntry={true}/>
                                 <TouchableOpacity style={styles.login} activeOpacity={0.7}
                                                   onPress={() => this._login()}>
                                     <Text style={styles.loginText}>登 录</Text>
                                 </TouchableOpacity>
-                                <View style={{flexDirection: 'row', backgroundColor: 'white',paddingLeft:8,paddingRight:8,marginTop:5}}>
+                                <View style={{flexDirection: 'row',paddingLeft:8,paddingRight:8,marginTop:5}}>
                                     <TouchableOpacity activeOpacity={0.7} onPress={this.goResetPassword}>
                                         <Text style={styles.text}>忘记密码</Text>
                                     </TouchableOpacity>
@@ -157,10 +151,8 @@ class Login extends Component {
                                     </TouchableOpacity>
                                 </View>
                             </View>
-                        </ImageBackground>
+                        </View>
                         <View style={{flex:1}}/>
-                        <ServiceMessageView style={{justifyContent: 'flex-end'}}/>
-                    </View>
                 </View>
                 <IphoneModel style={{backgroundColor:'#00000000'}}/>
             </View>

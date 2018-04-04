@@ -170,24 +170,24 @@ class ProductDetail extends BaseComponent {
                         <CarouselProduct data={this.state.detailImageUrlList}/>
                         <BasicInfoView data={this.state.data}/>
                         <View style={{height:10,backgroundColor:mainBackgroundColor}}/>
-                        {!this.state.data.merchant?null:
-                            <TouchableOpacity
-                                style={{flexDirection:'row', alignItems: 'center', backgroundColor: '#fff',padding:10, height:80}}
-                                onPress={()=> {
-                                    // if(this.isHasStore)dispatch(goBack('Store'));
-                                    // else dispatch(goto('Store',this.state.data.merchant.id));
-                                }}
-                                activeOpacity={0.7}>
-                                <View style={styles.imgView}>
-                                    <XImage style={{height: 58, width: 58}} uri={this.state.data.merchant.logo}/>
-                                </View>
-                                <View style={{flex:1}}>
-                                    <Text style={{color: titleTextColor}}>{this.state.data.merchant.name}</Text>
-                                    <Text style={{color: titleTextColor, marginTop: 5}}>在售商品<Text style={{color: mainColor}}>{this.state.data.merchant.saleCount}</Text>个</Text>
-                                </View>
+                        {/*{!this.state.data.merchant?null:*/}
+                            {/*<TouchableOpacity*/}
+                                {/*style={{flexDirection:'row', alignItems: 'center', backgroundColor: '#fff',padding:10, height:80}}*/}
+                                {/*onPress={()=> {*/}
+                                    {/*// if(this.isHasStore)dispatch(goBack('Store'));*/}
+                                    {/*// else dispatch(goto('Store',this.state.data.merchant.id));*/}
+                                {/*}}*/}
+                                {/*activeOpacity={0.7}>*/}
+                                {/*<View style={styles.imgView}>*/}
+                                    {/*<XImage style={{height: 58, width: 58}} uri={this.state.data.merchant.logo}/>*/}
+                                {/*</View>*/}
+                                {/*<View style={{flex:1}}>*/}
+                                    {/*<Text style={{color: titleTextColor}}>{this.state.data.merchant.name}</Text>*/}
+                                    {/*<Text style={{color: titleTextColor, marginTop: 5}}>在售商品<Text style={{color: mainColor}}>{this.state.data.merchant.saleCount}</Text>个</Text>*/}
+                                {/*</View>*/}
                                 {/*<XImage source={ic_right_arrows} style={{width: 22*0.53, height: 22,resizeMode:'stretch'}}/>*/}
-                            </TouchableOpacity>
-                        }
+                            {/*</TouchableOpacity>*/}
+                        {/*}*/}
                         <View style={{height:this.state.data.merchant?10:0,backgroundColor:mainBackgroundColor}}/>
                     </View>
                     <ProductMiddleView

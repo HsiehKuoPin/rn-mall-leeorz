@@ -25,6 +25,10 @@ import ProductCategory from "../product/ProductCategory";
 import {goto, init} from "../../reducers/RouterReducer";
 import {notifyUpdateUserInfo,notifyUpdateShoppingCart} from "../../reducers/CacheReducer";
 import Home from "../home/Home";
+import {
+    ic_tabhost_bottom_icon1, ic_tabhost_bottom_icon2, ic_tabhost_bottom_icon3,
+    ic_tabhost_bottom_icon4
+} from "../../../resources/index";
 
 let token = undefined;
 let dispatch = undefined;
@@ -165,8 +169,8 @@ const TabRouteConfigs = {
                 <TabBarItem
                     tintColor={tintColor}
                     focused={focused}
-                    normalImage={ic_tabhost_index}
-                    selectedImage={ic_tabhost_index_selected}
+                    selectedImage={ic_tabhost_bottom_icon1}
+                    normalImage={ic_tabhost_bottom_icon1}
                 />
             ),
         }),
@@ -179,8 +183,8 @@ const TabRouteConfigs = {
                 <TabBarItem
                     tintColor={tintColor}
                     focused={focused}
-                    normalImage={ic_tabhost_product}
-                    selectedImage={ic_tabhost_product_selected}
+                    selectedImage={ic_tabhost_bottom_icon2}
+                    normalImage={ic_tabhost_bottom_icon2}
                 />
             ),
         },
@@ -193,8 +197,8 @@ const TabRouteConfigs = {
                 <TabBarItem
                     tintColor={tintColor}
                     focused={focused}
-                    normalImage={ic_tabhost_shoppingcart}
-                    selectedImage={ic_tabhost_shoppingcart_selected}
+                    selectedImage={ic_tabhost_bottom_icon3}
+                    normalImage={ic_tabhost_bottom_icon3}
                 />
             ),
             tabBarOnPress: (({scene, jumpToIndex}) => {
@@ -210,8 +214,8 @@ const TabRouteConfigs = {
                 <TabBarItem
                     tintColor={tintColor}
                     focused={focused}
-                    normalImage={ic_tabhost_personal}
-                    selectedImage={ic_tabhost_personal_selected}
+                    selectedImage={ic_tabhost_bottom_icon4}
+                    normalImage={ic_tabhost_bottom_icon4}
                 />
             ),
             tabBarOnPress: (({scene, jumpToIndex}) => {

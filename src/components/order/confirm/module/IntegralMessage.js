@@ -11,7 +11,7 @@ import {goto} from '../../../../reducers/RouterReducer';
 import {showToastShort} from "../../../../common/CommonToast";
 import {post,isSuccess} from "../../../../common/CommonRequest";
 import {
-    contentTextColor, mainBackgroundColor, mainColor, placeholderTextColor,
+    contentTextColor, mainBackgroundColor, mainColor, placeholderTextColor, priceColor,
 } from "../../../../constraint/Colors";
 import {
     BALANCE_ACCOUNT, PAYMENTS_CONFIG,
@@ -122,7 +122,7 @@ class IntegralMessage extends Component {
                     <Text style={{
                         marginRight: 10,
                         fontSize: 15,
-                        color: mainColor
+                        color: priceColor
                     }}>{formatMoney(totalPrice)}</Text>
                 </View>
                 <View style={{

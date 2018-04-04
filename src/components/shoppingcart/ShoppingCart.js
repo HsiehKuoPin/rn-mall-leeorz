@@ -21,6 +21,7 @@ import {mainBackgroundColor} from "../../constraint/Colors";
 import SettlementDialog from "../../widgets/dialog/SettlementDialog";
 import ShoppingCartMerchantHeader from "./ShoppingCartMerchantHeader";
 import {goto} from "../../reducers/RouterReducer";
+import {APP_STORE_NAME} from "../../constraint/Strings";
 
 class ShoppingCart extends BaseComponent {
 
@@ -169,6 +170,7 @@ class ShoppingCart extends BaseComponent {
         let merchantList = [];
         this.props.shoppingCart.map((item,index)=>{
             let isFind = false;
+            item.productSkuVo.merchantName = item.productSkuVo.merchantName === '自然e家'?APP_STORE_NAME:item.productSkuVo.merchantName;
             merchantList.map((merchant)=>{
                 if(item.productSkuVo.merchantId === merchant.merchant.merchantId){
                     isFind = true;
@@ -185,6 +187,7 @@ class ShoppingCart extends BaseComponent {
             }
         });
 
+
         //查看是否有全选店家的数据
         merchantList.map((merchantItem) => {
                 merchantItem.merchant.allCheck = true;
@@ -199,18 +202,20 @@ class ShoppingCart extends BaseComponent {
 
         let listView = (this.props.shoppingCart.length === 0) ? (<EmptyView emptyTip={'购物车空空，快去逛逛吧'}/>) :
             (<View style={{flex: 1}}>
-                    <SectionList
-                        stickySectionHeadersEnabled={true}
-                        // style={{flex: 1,}}
-                        renderSectionHeader={(item) => <ShoppingCartMerchantHeader data={item.section.merchant}/>}
-                        sections={merchantList}
-                        keyExtractor={(item, index) => index}
-                        renderItem={({item,index,section}) => <ShoppingCartItem data={item}
-                                                                        isLast={index === section.data.length - 1}
-                                                          selectProduct={(id)=>{
-                                                              this.props.dispatch(selectShoppingCartProduct(id))
-                                                          }}
-                                        /> }/>
+                        <SectionList
+                            stickySectionHeadersEnabled={true}
+                            renderSectionHeader={(item) =><ShoppingCartMerchantHeader data={item.section.merchant}/>}
+                            sections={merchantList}
+                            keyExtractor={(item, index) => index}
+                            renderItem={({item,index,section}) =>
+                                <ShoppingCartItem data={item}
+                                                  isLast={index === section.data.length - 1}
+                                                  selectProduct={(id) => {
+                                                      this.props.dispatch(selectShoppingCartProduct(id))
+                                                  }}
+                                />}/>
+                        {/*<EmptyView isShowEmptyView={false}/>*/}
+
                     <BottomView
                         onClickDeleteBtn={()=>{
                             this._deleteShoppingCartProduct(merchantList);

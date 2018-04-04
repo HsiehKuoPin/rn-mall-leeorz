@@ -12,7 +12,7 @@ import {
     mainBackgroundColor,
     titleTextColor,
     content2TextColor,
-    placeholderTextColor
+    placeholderTextColor, priceColor
 } from '../../constraint/Colors';
 import TitleBar from '../../widgets/TitleBar';
 import {ic_delete} from '../../constraint/Image';
@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
     },
     price: {
         alignItems: 'flex-end',
-        color: mainColor,
+        color: priceColor,
         fontSize: 16,
         marginTop: 12
     },

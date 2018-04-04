@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, FlatList} from "react-native";
-import {mainColor, placeholderTextColor, contentTextColor, titleTextColor} from "../../../constraint/Colors";
+import {
+    mainColor, placeholderTextColor, contentTextColor, titleTextColor,
+    priceColor
+} from "../../../constraint/Colors";
 import {formatMoney} from "../../../common/StringUtil";
 import {PAYMENTS_CONFIG} from "../../../constraint/AssetsType";
 
@@ -61,7 +64,7 @@ const styles = StyleSheet.create({
     txtPrice: {
         fontSize: 16,
         marginTop: 10,
-        color: mainColor,
+        color: priceColor,
         marginBottom:5,
     },
     txtParent: {

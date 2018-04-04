@@ -8,7 +8,7 @@ const STATUS_ERROR = 10001;
 const STATUS_TOKEN_INVALID = 10002;//token失效
 const STATUS_FAIL = 10003;
 
-export const api_product = 'https://api.newmall.ejiamall.cn/api/';
+export const api_product = 'http://api.newmall.ejiamall.cn/api/';
 export const api_test = 'http://japi.wdfcds.com/api/';
 
 let host = api_product;

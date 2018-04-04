@@ -17,7 +17,7 @@ import {
     titleTextColor,
     placeholderTextColor,
     mainColor,
-    content2TextColor,
+    content2TextColor, priceColor,
 } from "../../../constraint/Colors";
 
 import {
@@ -152,7 +152,7 @@ class SingleProductView extends Component {
                                                                    style={styles.singleProductSku}>{item}</Text>)}
                             </View>
                             <View style={{flexDirection: 'row', justifyContent: 'center', marginTop: 5}}>
-                                <Text style={{fontSize: 14, color: mainColor, flex: 1}}
+                                <Text style={{fontSize: 14, color: priceColor, flex: 1}}
                                       numberOfLines={1}>{formatMoney(data.orderType === ORDER_COMBO ? data.amount : itemData.amount)}</Text>
                                 <Text style={{fontSize: 16, color: '#333333'}}
                                       numberOfLines={1}>x {data.orderType === ORDER_COMBO ? data.quantity : itemData.quantity}</Text>
@@ -216,7 +216,7 @@ const styles = StyleSheet.create({
     },
     price: {
         fontSize: 16,
-        color: mainColor,
+        color: priceColor,
         marginVertical: 5,
         marginRight: 5
     },

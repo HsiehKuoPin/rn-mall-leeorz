@@ -35,7 +35,7 @@ class CarouselProduct extends Component {
                     }}/>}
                     activeDot={<View style={{
                         backgroundColor: mainColor,
-                        width: 16,
+                        width: 8,
                         height: 8,
                         borderRadius: 4,
                         marginLeft: 4,

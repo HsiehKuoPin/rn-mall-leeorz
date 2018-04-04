@@ -23,6 +23,7 @@ import {post, isSuccess} from '../../common/CommonRequest';
 import {showToastShort} from "../../common/CommonToast";
 import XImage from '../../widgets/XImage';
 import {formatMoney} from "../../common/StringUtil";
+import CheckBox from "../../widgets/checkbox/CheckBox";
 
 class ShoppingCartItem extends Component {
 
@@ -100,7 +101,7 @@ class ShoppingCartItem extends Component {
             }}>
         <View style={[styles.itemContain,{paddingBottom:this.props.isLast?15:0}]}>
 
-                <Image source={check ? ic_selected : ic_un_selected} style={[styles.check, {marginLeft: 5,}]}/>
+                <CheckBox isCheck={check} style={[{marginLeft: 5,}]}/>
 
             <XImage style={styles.itemImg} uri={item.imgUrl}/>
             <View style={{flex: 1, flexDirection:'column',height: 80,}}>
@@ -110,9 +111,10 @@ class ShoppingCartItem extends Component {
                 <View style={{flex:1}}/>
                 <View style={{flexDirection: 'row', alignItems: 'center'}}>
                     <Text style={styles.price}>{formatMoney(item.salePrice)}</Text>
-                    <StepperView data={item}
-                                 updateCount={type => {
-                                     this._updateCount(type, item)
+                    <StepperView max={item.stock}
+                                 count={item.quantity}
+                                 updateCount={({action}) => {
+                                     this._updateCount(action, item)
                                  }}/>
                 </View>
             </View>
@@ -174,7 +176,6 @@ const styles = StyleSheet.create({
         width: 80,
         height: 80,
         marginLeft: 5,
-        borderRadius: 5,
         borderWidth: 0.3,
         borderColor: placeholderTextColor,
         marginRight: 10,
@@ -208,13 +209,6 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: titleTextColor,
 
-    },
-    check: {
-        width: 15,
-        height: 15,
-        marginRight: 5,
-        marginTop: 2,
-        resizeMode: 'contain',
     },
     checkItem: {
         flexDirection: 'row',

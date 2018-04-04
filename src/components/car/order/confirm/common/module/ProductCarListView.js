@@ -5,7 +5,10 @@ import {
     FlatList,
     Text,
 } from 'react-native';
-import {content2TextColor, mainColor, placeholderTextColor, titleTextColor} from "../../../../../../constraint/Colors";
+import {
+    content2TextColor, mainColor, placeholderTextColor, priceColor,
+    titleTextColor
+} from "../../../../../../constraint/Colors";
 import XImage from "../../../../../../widgets/XImage";
 import {formatMoney} from "../../../../../../common/StringUtil";
 
@@ -59,7 +62,7 @@ class ProductCarListView extends Component {
                                               marginRight: 30,
                                               paddingBottom: 10,
                                               fontSize: 14,
-                                              color: mainColor
+                                              color: priceColor
                                           }}
                                                 numberOfLines={1}>{'价格:' + formatMoney(item.salePrice)}</Text>
                                       </View>

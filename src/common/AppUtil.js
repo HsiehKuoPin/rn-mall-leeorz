@@ -1,8 +1,12 @@
-
-
 import {Platform,Dimensions} from 'react-native';
 import {api_product, getHost} from "./CommonRequest";
+
 export const SERVICE_CALL = '4008009433';
+const {height,width} = Dimensions.get('window');
+export const SCREEN_WIDTH = width;
+export const SCREEN_HEIGHT = height;
+
+
 export function isIPhone5(){
     return Platform.OS === 'ios' && Dimensions.get('window').width === 320
 }

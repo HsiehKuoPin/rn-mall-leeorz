@@ -3,6 +3,7 @@
  */
 import React, {Component} from 'react';
 import {Image, Text, View} from "react-native";
+import {mainColor} from "../../constraint/Colors";
 export default class TabBarItem extends Component {
 
 
@@ -11,7 +12,7 @@ export default class TabBarItem extends Component {
     }
 
     static defaultProps = {
-        // tintColor: '#ffffff',
+        tintColor: null,
         focused: false,
         normalImage: NaN,
         selectedImage: NaN,
@@ -25,12 +26,14 @@ export default class TabBarItem extends Component {
     };
 
     render() {
-        return (
+        let showIcon = this.props.focused ? this.props.selectedImage : this.props.normalImage;;
+
+            return (
             <View style={{width: 23, height: 23}}>
 
-            <Image source={ this.props.focused ? this.props.selectedImage : this.props.normalImage }
-                   style={ {
-                       // tintColor: this.props.tintColor,
+            <Image source={showIcon}
+                   style={{
+                       tintColor: this.props.tintColor,
                        width: 23, height: 23} }
             />
             </View>

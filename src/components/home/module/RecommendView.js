@@ -4,7 +4,7 @@ import {ic_recommend} from "../../../constraint/Image";
 import {goto} from "../../../reducers/RouterReducer";
 import {connect} from "react-redux";
 import XImage from "../../../widgets/XImage";
-import {contentTextColor, mainColor, titleTextColor} from "../../../constraint/Colors";
+import {contentTextColor, mainColor, priceColor, titleTextColor} from "../../../constraint/Colors";
 import {formatMoney} from "../../../common/StringUtil";
 import {gotoDetail} from "../../../common/ProductUtil";
 import {getMiddle} from "../../../common/PhotoUtil";
@@ -43,7 +43,7 @@ class RecommendView extends Component {
                             <XImage uri={getMiddle(item.imgUrl)}
                                     style={{marginBottom: 10, width: (width - 60) / 3,height:(width - 60) / 3}}/>
                             <Text numberOfLines={1} style={{fontSize:15,color:titleTextColor}}>{item.NAME}</Text>
-                            <Text numberOfLines={1} style={{fontSize:13,color:mainColor,paddingTop:3}}>{formatMoney(item.salePrice)}</Text>
+                            <Text numberOfLines={1} style={{fontSize:13,color:priceColor,paddingTop:3}}>{formatMoney(item.salePrice)}</Text>
                         </TouchableOpacity>
                     }
                 />

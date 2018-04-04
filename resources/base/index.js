@@ -1,0 +1,15 @@
+export const BaseIcon = {
+    ic_top:require('./style1/ic_top.png'),
+    ic_default_avatar:require('./style1/ic_default_avatar.png'),
+    ic_checkbox:require('./style1/ic_checkbox.png'),
+    ic_checkbox_selected:require('./style1/ic_checkbox_selected.png'),
+    ic_message:require('./style1/ic_message.png'),
+    ic_search:require('./style1/ic_search.png'),
+    ic_arrow_right:require('./style1/ic_right_arrows.png'),
+    ic_arrow_left:require('./style1/ic_arrow_left.png'),
+    ic_notification:require('./style1/ic_notification.png'),
+    ic_minus_disabled:require('./style1/ic_minus_disabled.png'),
+    ic_minus:require('./style1/ic_minus.png'),
+    ic_plus:require('./style1/ic_plus.png'),
+    ic_plus_disabled:require('./style1/ic_plus_disabled.png'),
+};

@@ -10,8 +10,7 @@ import {
 } from 'react-native';
 import {connect} from 'react-redux';
 import styles from '../../styles/login_style';
-import {
-    ic_register_background, ic_selected, ic_un_selected,
+import {ic_selected, ic_un_selected,
 } from "../../constraint/Image";
 import TitleBar from '../../widgets/TitleBar';
 import {
@@ -59,7 +58,7 @@ class RegisterComponent extends Component {
             captha: '',
             user_psw: '',
             user_confirm_psw: '',
-            isAgreeAgreement: false
+            isAgreeAgreement: true
         };
 
         this.onGetVerifyCode = false;
@@ -194,10 +193,10 @@ class RegisterComponent extends Component {
 
     render() {
         return (
-            <View style={{backgroundColor: mainBackgroundColor, flex: 1}}>
+            <View style={{backgroundColor: 'white', flex: 1}}>
                 <TitleBar title={'注  册'} hideRight={true}/>
                 <View style={{marginTop: 20, alignItems: 'center'}}>
-                    <ImageBackground source={ic_register_background}
+                    <View
                                      style={styles.registerBackground}>
                         <View style={styles.registerLayout}>
                             <View style={Styles.InputLayout}>
@@ -302,29 +301,29 @@ class RegisterComponent extends Component {
                                 />
                             </View>
 
-                            <View style={{flexDirection: 'row', marginTop: 20, alignSelf: 'flex-start'}}>
-                                <TouchableOpacity activeOpacity={1} style={{flexDirection: 'row',}}
-                                                  onPress={() => {
-                                    this.setState(preState => {
-                                        return {isAgreeAgreement: !preState.isAgreeAgreement};
-                                    });
-                                }}>
-                                    <XImage source={this.state.isAgreeAgreement ? ic_selected : ic_un_selected}
-                                            style={Styles.agreement}
-                                    />
-                                    <Text style={[Styles.protocol, {marginLeft: 5,color:contentTextColor}]}>{'勾选即表示同意'}</Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity activeOpacity={0.7}
-                                                  onPress={() => this.props.dispatch(goto('Agreement', {title: ' 用户注册服务协议', url: getHost() + 'main/register_protocol.html'}))}>
-                                    <Text style={Styles.protocol}>《用户注册服务协议》</Text>
-                                </TouchableOpacity>
-                            </View>
+                            {/*<View style={{flexDirection: 'row', marginTop: 20, alignSelf: 'flex-start'}}>*/}
+                                {/*<TouchableOpacity activeOpacity={1} style={{flexDirection: 'row',}}*/}
+                                                  {/*onPress={() => {*/}
+                                    {/*this.setState(preState => {*/}
+                                        {/*return {isAgreeAgreement: !preState.isAgreeAgreement};*/}
+                                    {/*});*/}
+                                {/*}}>*/}
+                                    {/*<XImage source={this.state.isAgreeAgreement ? ic_selected : ic_un_selected}*/}
+                                            {/*style={Styles.agreement}*/}
+                                    {/*/>*/}
+                                    {/*<Text style={[Styles.protocol, {marginLeft: 5,color:contentTextColor}]}>{'勾选即表示同意'}</Text>*/}
+                                {/*</TouchableOpacity>*/}
+                                {/*<TouchableOpacity activeOpacity={0.7}*/}
+                                                  {/*onPress={() => this.props.dispatch(goto('Agreement', {title: ' 用户注册服务协议', url: getHost() + 'main/register_protocol.html'}))}>*/}
+                                    {/*<Text style={Styles.protocol}>《用户注册服务协议》</Text>*/}
+                                {/*</TouchableOpacity>*/}
+                            {/*</View>*/}
                             <TouchableOpacity style={styles.register} activeOpacity={0.7}
                                               onPress={() => this._register()}>
                                 <Text style={styles.loginText}>提 交</Text>
                             </TouchableOpacity>
                         </View>
-                    </ImageBackground>
+                    </View>
                 </View>
             </View>
         )

@@ -12,11 +12,15 @@ import {
     Platform, FlatList, ScrollView
 } from 'react-native';
 import {isIphoneX} from "react-native-iphone-x-helper";
-import {contentTextColor, mainColor, placeholderTextColor, titleTextColor} from "../../../constraint/Colors";
-import Stepper from "../../../widgets/Stepper";
+import {
+    contentTextColor, mainColor, placeholderTextColor, priceColor,
+    titleTextColor
+} from "../../../constraint/Colors";
 import {emptyImgUrl} from "../../../constraint/Image";
 import {formatMoney} from "../../../common/StringUtil";
 import {showToastShort} from "../../../common/CommonToast";
+import StepperView from "../../shoppingcart/StepperView";
+import Stepper from "../../../widgets/Stepper";
 
 const titleBarHeight = 45;
 const defaultTop = Platform.OS === 'android' ? ((Platform.Version >= 21) ? 20 : 25) : 20;
@@ -86,7 +90,7 @@ const styles = StyleSheet.create({
         elevation: 2
     },
     txt: {
-        fontSize: 16,
+        fontSize: 14,
         color: titleTextColor,
         marginBottom: 5,
     },
@@ -94,7 +98,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#f3f3f3',
         borderColor: '#c7c7c7',
         padding: 5,
-        borderRadius: 3,
+        // borderRadius: 3,
         borderWidth: 0.5,
         minWidth: 60,
         textAlign: 'center'
@@ -186,7 +190,7 @@ export default class SelectProductDialog extends Component {
                     <View style={styles.topView1}>
                         <Text style={styles.txt}>{data.name}</Text>
                         <Text style={{
-                            color: mainColor,
+                            color: priceColor,
                             marginBottom: 5
                         }}>{formatMoney(this.state.selectSkus.salePrice)}</Text>
                     </View>
@@ -229,26 +233,24 @@ export default class SelectProductDialog extends Component {
                         backgroundColor: '#fff'
                     }}>
                         <Text>购买数量：</Text>
-                        <Stepper
-                            value={this.state.valueCustom}
-                            min={1}
-                            max={this.props.isBuyCar?1:purchaseQuantity}
-                            onChange={v => this.setState({valueCustom: v})}
-                        />
+
+                        <StepperView max={this.props.isBuyCar?1:purchaseQuantity}
+                                     count={this.state.valueCustom}
+                                     updateCount={({action,count}) => {
+                                         this.setState({valueCustom: count})
+                                     }}/>
                         <View style={{flex: 1}}/>
                         <Text style={{fontSize: 12, alignSelf: 'flex-end'}}> 库存：{this.state.selectSkus.stock} 件</Text>
                     </View>
                     <View style={{flex: 1, backgroundColor: 'white'}}/>
                 </View>
                 <TouchableOpacity
-                    // disabled={purchaseQuantity===0}
                     style={{
                         marginBottom: isIphoneX() ? height * 0.3 + 34 : height * 0.3,
                         width: width,
                         height: 45,
                         justifyContent: 'center',
                         alignItems: 'center',
-                        // backgroundColor: purchaseQuantity===0?contentTextColor:mainColor
                         backgroundColor: mainColor
                     }}
                     onPress={() => {

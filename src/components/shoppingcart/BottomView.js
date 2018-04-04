@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import {
     mainColor, titleTextColor,
-    content2TextColor, placeholderTextColor
+    content2TextColor, placeholderTextColor, priceColor
 } from '../../constraint/Colors';
 import {connect} from 'react-redux';
 import {formatMoney} from "../../common/StringUtil";
@@ -42,7 +42,7 @@ class BottomView extends Component {
             <View style={styles.container}>
                 <View style={{justifyContent: 'center', backgroundColor: 'white', flex: 1, paddingLeft: 10}}>
                     <Text style={{color: titleTextColor, fontSize: 17}}>合计:
-                        <Text style={{color: mainColor, fontSize: 17}}>{formatMoney(totalPrice)}</Text>
+                        <Text style={{color: priceColor, fontSize: 17}}>{formatMoney(totalPrice)}</Text>
                     </Text>
                     <Text style={{color: content2TextColor, fontSize: 14, marginTop: 2}}>共{totalCount}个商品</Text>
                 </View>

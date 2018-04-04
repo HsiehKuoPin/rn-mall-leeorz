@@ -3,8 +3,12 @@ import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native'
 import {contentTextColor, mainColor} from "../../../constraint/Colors";
 import {ic_tabhost_shoppingcart, product_collected, product_not_collect,ic_enter_TheShop} from "../../../constraint/Image";
 import {connect} from "react-redux";
-import {isIphoneX} from "react-native-iphone-x-helper";
 import {isIPhone5} from "../../../common/AppUtil";
+import {
+    ic_product_collect, ic_product_collect_full, ic_product_shopping_cart,
+    ic_tabhost_bottom_icon3
+} from "../../../../resources/index";
+import TintImage from "../../../widgets/TintImage";
 
 class ProductBottomView extends Component {
     render() {
@@ -15,7 +19,8 @@ class ProductBottomView extends Component {
                         activeOpacity={0.7}
                         style={[styles.touch, {flex: 1,paddingLeft:20,paddingRight:20}]}
                         onPress={this.props.onCollectPress}>
-                        <Image style={[styles.img,{marginLeft:10,marginRight:5}]} source={this.props.isCollected ? product_collected : product_not_collect}/>
+                        {this.props.isCollected ? <TintImage style={[styles.img, {marginLeft: 10, marginRight: 5}]} source={ic_product_collect_full}/>
+                            : <Image style={[styles.img, {marginLeft: 10, marginRight: 5}]} source={ic_product_collect}/>}
                         <Text style={[styles.txt]}>收藏</Text>
                     </TouchableOpacity>
                 )}
@@ -25,7 +30,7 @@ class ProductBottomView extends Component {
                         activeOpacity={0.7}
                         onPress={this.props.onCartPress}>
                         <View style={{minWidth: 30,height:45,justifyContent: 'center', alignItems: 'center',}}>
-                            <Image style={styles.img} source={ic_tabhost_shoppingcart}/>
+                            <Image style={styles.img} source={ic_product_shopping_cart}/>
                             <View style={[styles.countView,{display: this.props.shoppingCartCount > 0 ? 'flex' : 'none'}]}>
                                 <Text style={styles.count}>{this.props.shoppingCartCount}</Text>
                             </View>
@@ -65,8 +70,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
     },
     img: {
-        height: isIPhone5()?20:30,
-        width: isIPhone5()?15:20,
+        height: isIPhone5()?30:40,
+        width: isIPhone5()?20:30,
         resizeMode: 'contain',
     },
     countView: {

@@ -11,17 +11,18 @@ import {isIphoneX} from 'react-native-iphone-x-helper';
 var width = Dimensions.get('window').width;
 import {content2TextColor, contentTextColor} from '../../constraint/Colors';
 import {SERVICE_CALL} from "../../common/AppUtil";
+import {APP_NAME, APP_SERVICE_INFO} from "../../constraint/Strings";
 
 export default class ServiceMessageView extends Component {
 
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.messageText}>自然好生活</Text>
+                <Text style={styles.messageText}>{APP_SERVICE_INFO}</Text>
                 <View style={styles.messageLine}/>
                 <View style={{flexDirection: 'row',}}>
-                    <Text style={styles.messageCompany}>@自然e家商城</Text>
-                    <Text style={styles.messagePhone}>{SERVICE_CALL}</Text>
+                    <Text style={styles.messageCompany}>@{APP_NAME}商城</Text>
+                    {/*<Text style={styles.messagePhone}>{SERVICE_CALL}</Text>*/}
                 </View>
             </View>
         );
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
     },
     messageText: {
         color: contentTextColor,
-        fontSize: 14
+        fontSize: 12
     },
     messageLine: {
         height: 0.3,

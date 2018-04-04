@@ -11,6 +11,7 @@ import {content2TextColor, contentTextColor, mainBackgroundColor, titleTextColor
 import {login_logo} from "../../constraint/Image";
 import TitleBar from "../../widgets/TitleBar";
 import {isIPhone5} from "../../common/AppUtil";
+import {APP_NAME} from "../../constraint/Strings";
 
 const {width} = Dimensions.get('window');
 
@@ -28,12 +29,12 @@ class AboutUs extends Component {
                 />
                 <View style={styles.viewStyle}>
                     <Image source={login_logo} style={styles.logo}/>
-                    <Text style={styles.titleText}>{'自然e家 v'+this.props.appVersion}</Text>
-                    <Text style={styles.contentText}>{'\u3000\u3000'+ '自然e家共享社交商城是集合C2F、B2C、O2O等多种优势的创新型购物商城。商城产品涵盖日常用品、经典名车、保健养生、珠宝饰品、家用电器、数码科技、儿童用品等几十个品类、数千个品种，满足了消费者品质生活的需求。自然e家创新性提出“C2F+S”共享社交电商新模式，即构建“商城消费+社交电商+共享平台+大数据应用+区块链+实体经济+产业资本”的共享经济生态圈，打造一个平台与商家、创业者、消费者共生、共创、共享、共赢的新商业生态系统。\n'}</Text>
+                    <Text style={styles.titleText}>{APP_NAME + ' v'+this.props.appVersion}</Text>
+                    <Text style={styles.contentText}>{`\u3000\u3000${APP_NAME}共享社交商城是集合C2F、B2C、O2O等多种优势的创新型购物商城。商城产品涵盖日常用品、经典名车、保健养生、珠宝饰品、家用电器、数码科技、儿童用品等几十个品类、数千个品种，满足了消费者品质生活的需求。${APP_NAME}创新性提出“C2F+S”共享社交电商新模式，即构建“商城消费+社交电商+共享平台+大数据应用+区块链+实体经济+产业资本”的共享经济生态圈，打造一个平台与商家、创业者、消费者共生、共创、共享、共赢的新商业生态系统。\n`}</Text>
                     <Text style={{flex: 1}}> </Text>
                     <Text style={[styles.copyrightText, {marginBottom: 40}]}>联系邮箱:admin@ejiamall.cn</Text>
                     <Text style={[styles.copyrightText, {marginBottom: 10}]}>copyright@2017 - 2037</Text>
-                    <Text style={[styles.copyrightText, {marginBottom: 20}]}>广东自然e家电子商务有限公司</Text>
+                    <Text style={[styles.copyrightText, {marginBottom: 20}]}>广东{APP_NAME}电子商务有限公司</Text>
                 </View>
             </View>
         );

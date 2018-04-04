@@ -3,13 +3,14 @@ import {View, FlatList, StyleSheet, TouchableOpacity, Text, Dimensions, ScrollVi
 import { mainBackgroundColor, mainColor, titleTextColor} from "../../constraint/Colors";
 import {getRequestFailTip,  isSuccess, post} from "../../common/CommonRequest";
 import connect from "react-redux/es/connect/connect";
-import SearchView from "../home/module/SearchView";
+import SearchView from "./search/SearchTitleBar";
 import LoadingView from "../../widgets/LoadingView";
 import RequestErrorView from "../../widgets/RequestErrorView";
 import {showToastShort} from "../../common/CommonToast";
 import {goto} from "../../reducers/RouterReducer";
 import XImage from "../../widgets/XImage";
 import {getSmall, getThumb} from "../../common/PhotoUtil";
+import TitleBar from "../../widgets/TitleBar";
 
 const {width, height} = Dimensions.get('window');
 
@@ -96,11 +97,12 @@ class ProductCategory extends Component {
                         renderItem={({item, index}) =>
                             <View style={{
                                 flexDirection: 'row',
-                                backgroundColor: this.state.selectIndex === index ? mainBackgroundColor : "#FFFFFF"
+                                // backgroundColor: this.state.selectIndex === index ? mainColor : "#FFFFFF"
+                                backgroundColor: 'white'
                             }}>
                                 <View style={{
                                     backgroundColor: this.state.selectIndex === index ? mainColor : "#FFFFFF",
-                                    minHeight: 45,
+                                    minHeight: 30,
                                     width: 1,
                                     borderLeftColor: this.state.selectIndex === index ? mainColor : '#00000000',
                                     borderLeftWidth: this.state.selectIndex === index ? 3 : 0
@@ -115,7 +117,7 @@ class ProductCategory extends Component {
                                     }}
                                     activeOpacity={1}>
                                     <Text style={{
-                                        color: (this.state.selectIndex === index ? mainColor : titleTextColor),
+                                        color: (this.state.selectIndex === index ? mainColor : 'black'),
                                         marginLeft: this.state.selectIndex === index ? -3 : 0
                                     }}>{item.name}</Text>
                                 </TouchableOpacity>
@@ -124,18 +126,9 @@ class ProductCategory extends Component {
                     />
                 </View>
                 <ScrollView style={{flex: 1}}>
-                    <TouchableOpacity
-                        style={{height: (width - 100) / 3, marginLeft: 10}}
-                        onPress={() => {
-                        }}
-                        activeOpacity={1}>
-                        <XImage uri={imgUrl} style={{height: (width - 100) / 3}}/>
-                    </TouchableOpacity>
-
-                    <View
-                        style={styles.rightView}>
+                    <XImage uri={imgUrl} style={{height: (width - 92) / 3}}/>
+                    <View style={styles.rightView}>
                     <FlatList
-                        // style={styles.rightView}
                         showsVerticalScrollIndicator={false}
                         data={this.state.productListData}
                         keyExtractor={(item, index) => index}
@@ -164,7 +157,7 @@ class ProductCategory extends Component {
             </View>);
         return (
             <View style={styles.container}>
-                <SearchView noShowRightImage={true}/>
+                <TitleBar onlyTitle={true} title={'商品'}/>
                 {this.state.isLoading ? <LoadingView/> : showView}
             </View>
         );
@@ -179,22 +172,23 @@ const styles = StyleSheet.create({
     left: {
         width: 90,
         backgroundColor: '#fff',
+        marginRight:2,
     },
     leftTouch: {
         width: 90,
-        minHeight: 55,
+        minHeight: 45,
         justifyContent: 'center',
         alignItems: 'center',
     },
     rightView: {
-        margin: 10,
+        // margin: 10,
         backgroundColor: '#fff',
-        shadowColor: 'gray',
-        shadowOffset: {height: 2, width: 2},
-        shadowRadius: 2,
-        shadowOpacity: 0.2,
-        borderRadius: 2,
-        elevation: 2,
+        // shadowColor: 'gray',
+        // shadowOffset: {height: 2, width: 2},
+        // shadowRadius: 2,
+        // shadowOpacity: 0.2,
+        // borderRadius: 2,
+        // elevation: 2,
     },
 });
 

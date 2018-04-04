@@ -21,7 +21,7 @@ import {goto} from "../../../reducers/RouterReducer";
 import XImage from "../../../widgets/XImage";
 import BaseComponent from "../../../widgets/BaseComponent";
 import {
-    contentTextColor, mainBackgroundColor, mainColor, placeholderTextColor,
+    contentTextColor, mainBackgroundColor, mainColor, placeholderTextColor, priceColor,
 } from "../../../constraint/Colors";
 import {saveAddress, showLoadingDialog} from "../../../reducers/CacheReducer";
 import {BALANCE_ACCOUNT, JADE_INTEGRAL_ACCOUNT} from "../../../constraint/AssetsType";
@@ -166,7 +166,7 @@ class ConfirmOrderView extends BaseComponent {
                         合计：共 {this.state.quantity} 件
                     </Text>
                     <View style={{flex: 1}}/>
-                    <Text style={{color: mainColor}}>
+                    <Text style={{color: priceColor}}>
                         {formatMoney(this.state.data.combo.price)}
                     </Text>
                 </View>

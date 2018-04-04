@@ -52,7 +52,7 @@ class RechargeRecordView extends Component {
 
     render() {
         return (
-            <View style={{flex: 1, backgroundColor: mainBackgroundColor, padding: 10}}>
+            <View style={{flex: 1, backgroundColor: 'white'}}>
                 <View style={styles.container}>
                     <LFlatList
                         onLoadMore={this._onLoadMore.bind(this)}
@@ -102,13 +102,13 @@ class RechargeRecordView extends Component {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: 'white',
-        padding: 10,
-        borderRadius: 3,
+        // padding: 10,
+        // borderRadius: 3,
         flex: 1,
-        shadowOpacity: 0.2,
-        shadowOffset: {height: 2, width: 2},
-        shadowRadius: 3,
-        elevation: 4
+        // shadowOpacity: 0.2,
+        // shadowOffset: {height: 2, width: 2},
+        // shadowRadius: 3,
+        // elevation: 4
     },
     itemContain: {
         backgroundColor: 'white',

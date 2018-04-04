@@ -12,6 +12,8 @@ import {
 import {ic_un_selected, ic_selected, ic_delete} from '../../constraint/Image'
 import {connect} from "react-redux";
 import {allSelectMerchantProduct} from "../../reducers/ShoppingCartReducer";
+import CheckBox from "../../widgets/checkbox/CheckBox";
+import {APP_NAME} from "../../constraint/Strings";
 
 class ShoppingCartMerchantHeader extends Component {
 
@@ -19,18 +21,17 @@ class ShoppingCartMerchantHeader extends Component {
         super(props);
     }
     render() {
-        let check = this.props.data.allCheck;
-
+        let {allCheck,merchantName} = this.props.data;
         return (
             <TouchableOpacity
                 activeOpacity={0.7}
                 onPress={() => {
-                    this.props.dispatch(allSelectMerchantProduct(this.props.data.merchantId,!check));
+                    this.props.dispatch(allSelectMerchantProduct(this.props.data.merchantId,!allCheck));
                 }}>
                 <View style={styles.container}>
                     <View style={styles.storeLayout}>
-                        <Image source={check ? ic_selected : ic_un_selected} style={styles.check}/>
-                        <Text style={styles.storeName}>{this.props.data.merchantName}</Text>
+                        <CheckBox isCheck={allCheck}/>
+                        <Text style={styles.storeName}>{merchantName}</Text>
                     </View>
                 </View>
             </TouchableOpacity>
@@ -48,6 +49,7 @@ const styles = StyleSheet.create({
         padding:9,
         flexDirection:'row',
         backgroundColor:'#F9F9F9',
+        alignItems:'center',
     },
     storeName: {
         color: titleTextColor,
@@ -68,13 +70,6 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: titleTextColor,
 
-    },
-    check: {
-        width: 15,
-        height: 15,
-        marginRight: 8,
-        marginTop: 2,
-        resizeMode: 'contain',
     },
 });
 

@@ -18,6 +18,7 @@ import {connect} from 'react-redux';
 import {mainColor} from '../constraint/Colors';
 import {goBack} from '../reducers/RouterReducer';
 import {isIphoneX} from 'react-native-iphone-x-helper';
+import {ic_arrow_left} from "../../resources/index";
 
 const {width} = Dimensions.get('window');
 
@@ -57,7 +58,7 @@ class TitleBar extends Component {
                             dispatch(goBack());
                         }
                     }}>
-                    <Image source={whiteBackIco} style={styles.backIco}/>
+                    <Image source={ic_arrow_left} style={styles.backIco}/>
                 </TouchableOpacity>}
             </View>
         );

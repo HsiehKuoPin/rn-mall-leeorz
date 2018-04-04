@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 
 import {
-    content2TextColor, contentTextColor, mainBackgroundColor, mainColor, placeholderTextColor,
+    content2TextColor, contentTextColor, mainBackgroundColor, mainColor, placeholderTextColor, priceColor,
     titleTextColor
 } from "../../../../constraint/Colors";
 import Stepper from "../../../../widgets/Stepper";
@@ -91,7 +91,7 @@ class ProductListView extends Component {
                                           }
                                           <Text style={{
                                               fontSize: 13,
-                                              color: mainColor,
+                                              color: priceColor,
                                               marginRight: 10,
                                               paddingBottom: 5,
                                           }}

@@ -14,7 +14,7 @@ import BaseComponent from "../../widgets/BaseComponent";
 import XImage from "../../widgets/XImage";
 import {connect} from "react-redux";
 import {
-    content2TextColor, contentTextColor, mainBackgroundColor, mainColor, placeholderTextColor,
+    content2TextColor, contentTextColor, mainBackgroundColor, mainColor, placeholderTextColor, priceColor,
     titleTextColor
 } from "../../constraint/Colors";
 import {ic_entrepreneurship_found} from "../../constraint/Image";
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     },
     txtPrice: {
         fontSize: 25,
-        color: mainColor,
+        color: priceColor,
     },
     txtName: {
         fontSize: 14,

@@ -4,7 +4,7 @@ import {commonAction} from "../../../common/CommonAction";
 import XImage from "../../../widgets/XImage";
 import Swiper from 'react-native-swiper';
 import {getMiddle} from "../../../common/PhotoUtil";
-import {mainColor, placeholderTextColor, titleTextColor} from "../../../constraint/Colors";
+import {mainColor, placeholderTextColor, priceColor, titleTextColor} from "../../../constraint/Colors";
 import {formatMoney} from "../../../common/StringUtil";
 import {gotoDetail} from "../../../common/ProductUtil";
 import {connect} from "react-redux";
@@ -54,7 +54,7 @@ class QuarterZone extends Component{
                                 <Text numberOfLines={1} style={{fontSize:12.5,color:titleTextColor}}>{item.text}</Text>
                                 <View style={{flexDirection:'row'}}>
                                     <Text numberOfLines={1}
-                                          style={{fontSize:12,color:mainColor,paddingTop:3,flex:1}}>{formatMoney(item.price)}</Text>
+                                          style={{fontSize:12,color:priceColor,paddingTop:3,flex:1}}>{formatMoney(item.price)}</Text>
                                     {/*{
                                         (index + 1) % 3 !== 0 ? null :
                                             <Text numberOfLines={1}

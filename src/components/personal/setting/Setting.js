@@ -42,26 +42,23 @@ class Setting extends Component {
             <View style={{backgroundColor: mainBackgroundColor, flex: 1}}>
                 <TitleBar title={'设 置'}/>
                 <ScrollView style={{flex: 1}}>
+
                     <View style={styles.container}>
-                        <View style={{marginHorizontal: 15}}>
-                            {this.setItem('昵称', false, this.props.userInfo.name,()=>{this.props.dispatch(goto('ModifyNickname'))})}
-                            <View style={styles.line}/>
-                            {this.setItem('更改手机号码', false, this.props.userInfo.phone,()=>{this.props.dispatch(goto('ModifyPhone'))})}
-                        </View>
-                    </View>
-                    <View style={styles.container}>
-                        <View style={{marginHorizontal: 15}}>
-                            {this.setItem('修改登录密码', false, '',()=>{this.props.dispatch(goto('ModifyPassword'))})}
-                            <View style={styles.line}/>
-                            {this.setItem('支付密码', false, '',()=>{this.props.dispatch(goto('ResetPaymentPsw'))})}
-                            <View style={styles.line}/>
-                            {this.setItem('法律声明及隐私权政策', false, '', () => {
-                                this.props.dispatch(goto('Agreement', {title: '法律声明及隐私权政策', url: getHost() + 'main/legislation_protocol.html'}))
-                            })}
-                            <View style={styles.line}/>
-                            {this.setItem('关于我们', false, '',()=>{this.props.dispatch(goto('AboutUs'))})}
-                        </View>
-                        {this.setItem('安全退出', true, '',()=>{this.refs.LogoutDialog.showDialog()})}
+                        {this.setItem('昵称', false, this.props.userInfo.name,()=>{this.props.dispatch(goto('ModifyNickname'))})}
+                        <View style={styles.line}/>
+                        {this.setItem('更改手机号码', false, this.props.userInfo.phone,()=>{this.props.dispatch(goto('ModifyPhone'))})}
+                        <View style={styles.line}/>
+                        {this.setItem('修改登录密码', false, '',()=>{this.props.dispatch(goto('ModifyPassword'))})}
+                        <View style={styles.line}/>
+                        {this.setItem('支付密码', false, '',()=>{this.props.dispatch(goto('ResetPaymentPsw'))})}
+                        <View style={styles.line}/>
+                        {this.setItem('法律声明及隐私权政策', false, '', () => {
+                            this.props.dispatch(goto('Agreement', {title: '法律声明及隐私权政策', url: getHost() + 'main/legislation_protocol.html'}))
+                        })}
+                        <View style={styles.line}/>
+                        {this.setItem('关于我们', false, '',()=>{this.props.dispatch(goto('AboutUs'))})}
+                        <View style={styles.line}/>
+                        {this.setItem('安全退出', false, '',()=>{this.refs.LogoutDialog.showDialog()})}
                     </View>
                     <View>
                         <TipDialog
@@ -75,32 +72,19 @@ class Setting extends Component {
         )
     }
 
-    setItem(setName, isUserInfo, userInfo,func) {
-        let view = isUserInfo ? (<Text style={styles.value} numberOfLines={1}>{userInfo}</Text>) :
+    setItem(setName, showRightArrow, userInfo,func) {
+        let view = showRightArrow ? (<Text style={styles.value} numberOfLines={1}>{userInfo}</Text>) :
             (<Image source={ic_right_arrows} style={CommonStyles.rightArrowsStyle}/>);
-        return setName === '安全退出' ? (<TouchableOpacity
-            activeOpacity={0.7}
-            style={{
-                borderBottomLeftRadius: 3,
-                borderBottomRightRadius: 3,
-                height: 60,
-                alignItems: 'center',
-                justifyContent: 'center',
-                backgroundColor: mainColor
-            }}
-            onPress={() => {if(func)func()}}>
-            <Text style={{color: 'white', fontSize: 16,}}>{setName}</Text>
-        </TouchableOpacity>) : (setName === '昵称' || setName === '更改手机号码') ? (<TouchableOpacity
-            activeOpacity={isUserInfo ? 1 : 0.7}
+        return (setName === '昵称' || setName === '更改手机号码') ? (<TouchableOpacity
+            activeOpacity={showRightArrow ? 1 : 0.7}
             style={{flexDirection: 'row', height: 60, alignItems: 'center'}}
             onPress={() => {if(func)func()}}>
             <Text style={{color: titleTextColor, fontSize: 15}}>{setName}</Text>
             <View style={{flex: 1}}/>
             <Text style={styles.value} numberOfLines={1}>{userInfo}</Text>
-            {/*<View style={{flex: 1}}/>*/}
             {view}
         </TouchableOpacity>) : (<TouchableOpacity
-            activeOpacity={isUserInfo ? 1 : 0.7}
+            activeOpacity={showRightArrow ? 1 : 0.7}
             style={{flexDirection: 'row', height: 60, alignItems: 'center'}}
             onPress={() => {if(func)func()}}>
             <Text style={{color: titleTextColor, fontSize: 15}}>{setName}</Text>
@@ -115,14 +99,8 @@ class Setting extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 10,
-        marginHorizontal: 10,
+        paddingHorizontal: 15,
         backgroundColor: 'white',
-        shadowOpacity: 0.2,
-        shadowOffset: {height: 2, width: 2},
-        shadowRadius: 3,
-        elevation: 2,
-        borderRadius: 3
     },
     value: {
         color: contentTextColor,

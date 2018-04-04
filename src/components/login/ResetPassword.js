@@ -127,7 +127,7 @@ class ResetPasswordComponent extends Component {
 
     render() {
         return (
-            <View style={{backgroundColor: mainBackgroundColor, flex: 1}}>
+            <View style={{backgroundColor: 'white', flex: 1}}>
                 <TitleBar title={'找回密码'}/>
                 <View style={{marginTop: 20, alignItems: 'center'}}>
                     <ImageBackground source={ic_register_background} style={styles.resetBackground} resizeMode='cover'>

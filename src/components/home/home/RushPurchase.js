@@ -14,29 +14,29 @@ class RushPurchase extends Component{
         let data=this.props.data;
         return(
             <View>
-                {
-                    data.imgs.length===0?null:
-                    <Swiper
-                        removeClippedSubviews={false}
-                        autoplayTimeout={3}
-                        style={{height:  width * 0.26,borderTopColor: placeholderTextColor, borderTopWidth: 0.5}}
-                        loop={true}
-                        autoplay={true}
-                        showsPagination={false}
-                    >
-                        {
-                            data.imgs.map((item, i) => {
-                                    return <TouchableOpacity
-                                        key={i}
-                                        activeOpacity={1}
-                                        onPress={() => commonAction(this.props.dispatch,{item,token:this.props.token})}>
-                                        <XImage uri={item.imgUrl} style={{resizeMode: 'stretch',width: width, height: width * 0.26}}/>
-                                    </TouchableOpacity>
-                                }
-                            )
-                        }
-                    </Swiper>
-                }
+                {/*{*/}
+                    {/*data.imgs.length===0?null:*/}
+                    {/*<Swiper*/}
+                        {/*removeClippedSubviews={false}*/}
+                        {/*autoplayTimeout={3}*/}
+                        {/*style={{height:  width * 0.26,borderTopColor: placeholderTextColor, borderTopWidth: 0.5}}*/}
+                        {/*loop={true}*/}
+                        {/*autoplay={true}*/}
+                        {/*showsPagination={false}*/}
+                    {/*>*/}
+                        {/*{*/}
+                            {/*data.imgs.map((item, i) => {*/}
+                                    {/*return <TouchableOpacity*/}
+                                        {/*key={i}*/}
+                                        {/*activeOpacity={1}*/}
+                                        {/*onPress={() => commonAction(this.props.dispatch,{item,token:this.props.token})}>*/}
+                                        {/*<XImage uri={item.imgUrl} style={{resizeMode: 'stretch',width: width, height: width * 0.26}}/>*/}
+                                    {/*</TouchableOpacity>*/}
+                                {/*}*/}
+                            {/*)*/}
+                        {/*}*/}
+                    {/*</Swiper>*/}
+                {/*}*/}
                 <View style={{height: 0.5,backgroundColor:placeholderTextColor,width:width}}/>
                 <View style={{backgroundColor:'#fff',flexDirection:'row',marginBottom:5}}>
                     <TouchableOpacity

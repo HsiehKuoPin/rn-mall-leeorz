@@ -51,7 +51,7 @@ import RechargeCenter from "../components/personal/recharge/RechargeCenter";    
 import RechargeRecord from "../components/personal/recharge/RechargeRecord";     // 充值记录
 import News from "../components/home/news/News";     // 最新动态
 import NewsDetail from "../components/home/news/NewsDetail";     // 动态详情
-import SearchGoods from "../components/home/search/SearchGoods";     // 动态详情
+import SearchGoods from "../components/product/search/SearchGoods";     // 动态详情
 import MyAsset from '../components/personal/assets/MyAsset';
 import WaitCommentProductList from "../components/order/WaitCommentProductList";
 import PlatinumRecharge from '../components/personal/assets/PlatinumRecharge';
@@ -66,7 +66,7 @@ import RichMoreBuy from "../components/home/RichMoreBuy";
 import RichMoreConfirmOrder from "../components/order/richmore/ConfirmOrderView";
 import ComboPaymentDetail from "../components/order/richmore/ComboPaymentDetailView";
 import MyRecommendation from '../components/personal/MyRecommendation'
-import SearchResult from "../components/product/SearchResult";
+import SearchResult from "../components/product/search/SearchResult";
 import ApplyCustomerService from '../components/personal/service/ApplyCustomerService';
 import RichMoreRegister from "../components/home/RichMoreRegister";
 import CustomerService from "../components/personal/CustomerService";     // 售后管理

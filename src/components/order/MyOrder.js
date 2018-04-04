@@ -26,6 +26,7 @@ class MyOrder extends Component {
             case ORDER_APPROVED: pageIndex = 2;break;
             case ORDER_SENT: pageIndex = 3;break;
             case ORDER_APPRAISE: pageIndex = 4;break;
+            default:pageIndex = 0;break;
         }
     }
 

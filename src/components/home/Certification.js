@@ -120,7 +120,7 @@ class Certification extends Component {
 
     render() {
         return (
-            <View style={{backgroundColor: mainBackgroundColor, flex: 1}}>
+            <View style={{backgroundColor: 'white', flex: 1}}>
                 <TitleBar title={'实名认证'} hideRight={true}/>
                 <View style={styles.container}>
                     <View style={styles.inputLayout}>
@@ -191,14 +191,6 @@ const styles = StyleSheet.create({
     container: {
         margin: 10,
         padding: 20,
-        justifyContent: 'center',
-        backgroundColor: '#fff',
-        borderRadius: 5,
-        shadowColor: 'gray',
-        shadowOffset: {height: 2, width: 2},
-        shadowRadius: 5,
-        shadowOpacity: 0.2,
-        elevation: 2,
     },
     inputLayout:{
         flexDirection: 'row',

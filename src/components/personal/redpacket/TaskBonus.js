@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 import {
-    mainBackgroundColor,contentTextColor,content2TextColor,mainColor
+    mainBackgroundColor, contentTextColor, content2TextColor, mainColor, priceColor
 } from "../../../constraint/Colors";
 import {BALANCE_ACCOUNT} from "../../../constraint/AssetsType";
 import {connect} from 'react-redux'
@@ -117,7 +117,7 @@ class RedEnvelopesAccount extends Component {
                                 <Text style={{color:mainColor}}>{data.standard}</Text>
                             </Text>
 
-                            <Text style={{color:content2TextColor,fontSize:14}} numberOfLines={2}>{data.lastday}<Text style={{color:content2TextColor}}>{'前提货额'}</Text><Text style={{color:mainColor}}>{'￥'+data.pickGoods}</Text></Text>
+                            <Text style={{color:content2TextColor,fontSize:14}} numberOfLines={2}>{data.lastday}<Text style={{color:content2TextColor}}>{'前提货额'}</Text><Text style={{color:priceColor}}>{'￥'+data.pickGoods}</Text></Text>
                         </View>
                     </View>
                 </View>

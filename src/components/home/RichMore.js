@@ -16,6 +16,7 @@ import XFlatList from "../../widgets/XFlatList";
 import BaseComponent from "../../widgets/BaseComponent";
 import IphoneModel from "../../widgets/IphoneModel";
 import {formatMoney} from "../../common/StringUtil";
+import {APP_NAME} from "../../constraint/Strings";
 
 class RichMore extends BaseComponent {
     constructor(props) {
@@ -170,7 +171,7 @@ class RichMore extends BaseComponent {
             <Text style={styles.text}>注册订单号：{item.regOrderId}</Text>
             <View style={{height: 0.5, backgroundColor: placeholderTextColor, marginBottom: 15,marginTop: 20}}/>
             <View style={{flexDirection: 'row'}}>
-                {this.item('自然e家奖励',parseFloat(item.erebate).toFixed(2),0.5)}
+                {this.item(`${APP_NAME}奖励`,parseFloat(item.erebate).toFixed(2),0.5)}
                 {this.item('N+奖励',parseFloat(item.nrebate).toFixed(2),0.5)}
                 {this.item('服务人数',item.refereesNum,0)}
             </View>

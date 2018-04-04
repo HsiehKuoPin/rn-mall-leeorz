@@ -8,19 +8,12 @@ export const emptyImgUrl        = 'http://bonn.qiniudn.com/images/Company/201710
 //哭脸图
 export const failImage          = require('../../resources/ic_request_error.png');
 
-//登录背景框
-export const login_background = require('../../resources/ic_login_background.png');
+export const ic_default_avatar = require('../../resources/base/style1/ic_default_avatar.png');
 //登录logo
 export const login_logo = require('../../resources/ic_login_logo.png');
 //登录logo(圆)
 //登录logo(圆)
 export const ic_circle_logo = require('../../resources/ic_circle_logo.png');
-//登录手机号码
-export const ic_account = require('../../resources/ic_account.png');
-//登录手机密码
-export const ic_password = require('../../resources/ic_password.png');
-//注册、找回密码背景
-export const ic_register_background = require('../../resources/ic_register_background.png');
 
 //个人中心所需
 export const ic_delivered = require('../../resources/ic_delivered.png');
@@ -142,21 +135,9 @@ export const complete_the_lift = require('../../resources/complete_the_lift.png'
 export const ic_buyCar_record = require('../../resources/ic_buyCar_record.png');
 export const ic_buyCar_transfer = require('../../resources/ic_buyCar_transfer.png');
 
-//tabhost
-export const ic_tabhost_index = require('../../resources/ic_tabhost_index.png');
-export const ic_tabhost_index_selected = require('../../resources/ic_tabhost_index_selected.png');
-export const ic_tabhost_product = require('../../resources/ic_tabhost_product.png');
-export const ic_tabhost_product_selected = require('../../resources/ic_tabhost_product_selected.png');
-export const ic_tabhost_shoppingcart = require('../../resources/ic_tabhost_shoppingcart.png');
-export const ic_tabhost_shoppingcart_selected = require('../../resources/ic_tabhost_shoppingcart_selected.png');
-export const ic_tabhost_personal = require('../../resources/ic_tabhost_personal.png');
-export const ic_tabhost_personal_selected = require('../../resources/ic_tabhost_personal_selected.png');
-
 //购物车
 export const ic_empty_car = require('../../resources/ic_empty_car.png');
 //商品详情
-export const product_collected = require('../../resources/product_collected.png');
-export const product_not_collect = require('../../resources/product_not_collect.png');
 export const product_full_star = require('../../resources/product_full_star.png');
 export const product_empty_star = require('../../resources/product_empty_star.png');
 
@@ -243,7 +224,6 @@ export const ic_serviceCenter_upgrade_iphoneX = 'http://p0xkrqo35.bkt.clouddn.co
 //各种街
 export const ic_street_brand = require('../../resources/ic_street_brand.png');
 export const ic_street_discount = require('../../resources/ic_street_discount.png');
-export const ic_street_bg = 'http://p0xkrqo35.bkt.clouddn.com/1517644966697.png';
 export const ic_street_banner = require('../../resources/ic_street_banner.png');
 export const ic_buy_more = require('../../resources/ic_buy_more.png');
 
