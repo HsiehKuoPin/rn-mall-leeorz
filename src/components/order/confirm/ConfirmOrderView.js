@@ -11,7 +11,7 @@ import {connect} from 'react-redux';
 import RequestErrorView from '../../../widgets/RequestErrorView';
 import {post, getRequestFailTip, isSuccess} from "../../../common/CommonRequest"
 import {showToastShort} from "../../../common/CommonToast";
-import SelectAddress from "../../common/SelectAddress";
+import SelectAddress from "../module/selectaddress/index";
 import ProductList from "./module/ProductListView";
 import IntegralMessage from "./module/IntegralMessage";
 import {ic_colored_tape} from "../../../constraint/Image";
@@ -108,16 +108,6 @@ class ConfirmOrderView extends BaseComponent {
                         <ProductList data={this.state.data} products={products}/>
                         <IntegralMessage data={this.state.data} products={products} removeShoppingCart={this.removeShoppingCart}/>
                     </View>
-                    <View
-                        style={{
-                            position: 'absolute',
-                            height: 60, width: 60,
-                            marginLeft: width - 66,
-                            elevation: 2,
-                            marginTop: 6,
-                        }}>
-                        <XImage source={ic_colored_tape} style={{height: 60, width: 60}}/>
-                    </View>
                 </ScrollView>
             </View>);
         return (
@@ -135,14 +125,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#f2f2f2'
     },
     ViewStyle: {
-        shadowColor: 'gray',
-        shadowOffset: {height: 2, width: 2},
-        shadowRadius: 5,
-        shadowOpacity: 0.2,
-        elevation: 2,
         backgroundColor: 'white',
-        borderRadius: 5,
-        margin: 10,
     }
 });
 

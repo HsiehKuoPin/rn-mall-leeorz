@@ -13,7 +13,7 @@ import {connect} from 'react-redux';
 import RequestErrorView from '../../../widgets/RequestErrorView';
 import {post, getRequestFailTip,isSuccess} from "../../../common/CommonRequest"
 import {showToastShort} from "../../../common/CommonToast";
-import SelectAddress from "../../common/SelectAddress";
+import SelectAddress from "../module/selectaddress/style1/SelectAddress";
 import ProductList from "./module/ProductList"
 import {ic_colored_tape} from "../../../constraint/Image";
 import LoadingView from "../../../widgets/LoadingView";

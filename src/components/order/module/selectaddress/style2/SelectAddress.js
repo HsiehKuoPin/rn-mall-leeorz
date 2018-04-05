@@ -4,12 +4,15 @@ import {
     Image,
     Text,
     TouchableOpacity,
+    StyleSheet,
 } from 'react-native';
 
 import {connect} from 'react-redux';
-import {goto} from '../../reducers/RouterReducer';
-import {content2TextColor, placeholderTextColor, titleTextColor} from "../../constraint/Colors";
-import {ic_order_address, ic_right_arrows} from "../../constraint/Image";
+import {goto} from '../../../../../reducers/RouterReducer';
+import {content2TextColor, placeholderTextColor, titleTextColor} from "../../../../../constraint/Colors";
+import {ic_right_arrows} from "../../../../../constraint/Image";
+import {ic_order_address} from "../../../../../../resources/index";
+import {CommonStyles} from "../../../../../styles/CommonStyles";
 
 class SelectAddress extends Component {
 
@@ -21,37 +24,31 @@ class SelectAddress extends Component {
 
         let {data} = this.props;
         return (
-            <View>
+
                 <TouchableOpacity
-                    style={{
-                        backgroundColor: 'white',
-                        justifyContent: 'center',
-                        borderTopLeftRadius: 6,
-                        borderTopRightRadius: 6
-                    }}
-                    activeOpacity={0.5}
+                    style={styles.container}
+                    activeOpacity={0.7}
                     onPress={() => this.props.dispatch(goto('AddressList'))}>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                         <Image
-                            style={{marginLeft: 15, width: 30, height: 30}}
+                            style={{width: 30, height: 30}}
                             source={ic_order_address}
                             resizeMode="contain"/>
                         <View style={{
                             flex: 1,
+                            backgroundColor:'red',
                             flexDirection: 'column',
                             marginLeft: 10,
                             marginRight: 5,
                         }}>
                             <Text style={{
                                 fontSize: 14,
-                                paddingTop: 18,
                                 color: titleTextColor
                             }}
                                   numberOfLines={2}>
                                 {data.contactPerson === undefined ? '收货人:' : '收货人:' + data.contactPerson} {data.phone === undefined ? '' : '\u3000' + data.phone}</Text>
                             <Text style={{
-                                paddingTop: 10,
-                                paddingBottom: 5,
+                                marginTop: 10,
                                 fontSize: 14,
                                 color: content2TextColor
                             }}
@@ -60,12 +57,7 @@ class SelectAddress extends Component {
                             </Text>
                         </View>
                         <Image
-                            style={{
-                                marginRight: 30,
-                                width: 15,
-                                height: 15,
-                                resizeMode: 'cover'
-                            }}
+                            style={CommonStyles.rightArrowsStyle}
                             source={ic_right_arrows}
                             resizeMode="contain"/>
                     </View>
@@ -78,9 +70,19 @@ class SelectAddress extends Component {
                         height: 0.5
                     }}/>
                 </TouchableOpacity>
-            </View>
         );
     }
 }
+
+const styles = StyleSheet.create({
+    container:{
+        backgroundColor:'white',
+        justifyContent: 'center',
+        alignItems:'center',
+        paddingHorizontal:10,
+        marginBottom:5,
+        height:80,
+    }
+}) ;
 
 export default connect()(SelectAddress);

@@ -48,6 +48,7 @@ export const {
     ic_order_wait_delivery,//待发货
     ic_order_wait_received,//待收货
     ic_order_wait_pay,//待支付
+    ic_order_address,
 
 } = {
     ...BaseIcon,
