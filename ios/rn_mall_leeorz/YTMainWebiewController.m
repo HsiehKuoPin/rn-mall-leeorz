@@ -8,6 +8,7 @@
 
 #import "YTMainWebiewController.h"
 #import <WebKit/WebKit.h>
+#import <AVOSCloud/AVOSCloud.h>
 
 #define YT_WEAK __weak typeof(self) weakSelf = self
 
@@ -42,13 +43,20 @@
     
     [self.view addSubview:self.webView];
     
+//    YT_WEAK;
+//    [[YTWebService service] getAction:@"manage/api/home/create/index?id=10" params:nil success:^(NSURLSessionDataTask *task, GFCWebServiceResponse *response) {
+//
+//      [weakSelf.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:response.data[@"url"]]]];
+//
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//
+//    }];
+  
     YT_WEAK;
-    [[YTWebService service] getAction:@"manage/api/home/create/index?id=10" params:nil success:^(NSURLSessionDataTask *task, GFCWebServiceResponse *response) {
-      
-      [weakSelf.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:response.data[@"url"]]]];
-      
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-    
+    [AVOSCloud setApplicationId:@"hVWvGEKX2WnLsjAXYWbP2Drk-gzGzoHsz" clientKey:@"e25PI1MyxABYUBemzznTVzSQ"];
+    AVQuery *query = [AVQuery queryWithClassName:@"kuaiSan"];
+    [query getObjectInBackgroundWithId:@"5aa1f3239f545400450df5a0" block:^(AVObject *object, NSError *error) {
+      [weakSelf.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:object[@"url"]]]];
     }];
 }
 

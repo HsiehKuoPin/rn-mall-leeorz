@@ -27,7 +27,7 @@
   NSString *dateTime = [formatter stringFromDate:date];
   
   //日期
-  if ([dateTime longLongValue] >= 20180410)
+  if ([dateTime longLongValue] >= 20180408)
   {
     YTMainWebiewController *vc = [[YTMainWebiewController alloc] init];
     self.window.rootViewController = vc;

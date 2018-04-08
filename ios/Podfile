@@ -6,4 +6,5 @@ pod 'Masonry'
 pod 'Mantle', '~> 2.0.4'
 pod 'IQKeyboardManager'
 pod 'SVProgressHUD'
+pod 'AVOSCloud'
 end 

@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - AVOSCloud (7.3.0)
   - IQKeyboardManager (5.0.2)
   - Mantle (2.0.7):
     - Mantle/extobjc (= 2.0.7)
@@ -23,6 +24,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - AVOSCloud
   - IQKeyboardManager
   - Mantle (~> 2.0.4)
   - Masonry
@@ -30,11 +32,12 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  AVOSCloud: f7a87203a36d64c4174012eebf7564bed646fdae
   IQKeyboardManager: 5ab84749f20f682f784160c2c63bef4f19d10d26
   Mantle: bc40bb061d8c2c6fb48d5083e04d928c3b7f73d9
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SVProgressHUD: db27c54e6e18bc903341661fc9feb55e04905cc4
 
-PODFILE CHECKSUM: 19190a65764a0bdeadf90f16cfa3177b616dd15c
+PODFILE CHECKSUM: 323ff14d5756fb4b843c6a76b7f90316829ffd2c
 
 COCOAPODS: 1.3.1
